@@ -1,10 +1,11 @@
 const categories = [
-    { id: 'free', name: 'Free', icon: '🆓', color: '#10b981', defaultPercent: 15 },
-    { id: 'mandatory', name: 'Mandatory Expense', icon: '🏠', color: '#ef4444', defaultPercent: 30 },
-    { id: 'semester', name: 'Semester Pay', icon: '🎓', color: '#3b82f6', defaultPercent: 15 },
+    { id: 'free', name: 'Free', icon: '🆓', color: '#10b981', defaultPercent: 30 },
+    { id: 'mandatory', name: 'Mandatory Expense', icon: '🏠', color: '#ef4444', defaultPercent: 20 },
+    { id: 'semester', name: 'Semester Pay', icon: '🎓', color: '#3b82f6', defaultPercent: 10 },
     { id: 'car', name: 'Car', icon: '🚗', color: '#f59e0b', defaultPercent: 10 },
-    { id: 'lunch', name: 'Lunch', icon: '🍱', color: '#ec4899', defaultPercent: 10 },
-    { id: 'investment', name: 'Investment', icon: '📈', color: '#8b5cf6', defaultPercent: 20 }
+    { id: 'lunch', name: 'Lunch', icon: '🍱', color: '#ec4899', defaultPercent: 3.5 },
+    { id: 'investment', name: 'Investment', icon: '📈', color: '#8b5cf6', defaultPercent: 20 },
+    { id: 'Insurance', name: 'Insurance', icon: '♥', color: '#665C9F', defaultPercent: 6.5 }
 ];
 
 let monthlyData = [];
