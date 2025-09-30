@@ -16,6 +16,7 @@
         
         <div class="tabs">
             <button class="tab-btn active" onclick="showView('input')">💵 Add Income</button>
+            <button class="tab-btn" onclick="showView('presets')">⚙️ Presets</button>
             <button class="tab-btn" onclick="showView('dashboard')">📊 Dashboard</button>
         </div>
         
@@ -40,6 +41,12 @@
                         <input type="number" id="income" placeholder="0.00" />
                     </div>
                 </div>
+                
+                <!-- Preset Selection -->
+                <div class="preset-selector">
+                    <label>Load Preset Style:</label>
+                    <div class="preset-buttons" id="presetButtons"></div>
+                </div>
             </div>
             
             <div class="card">
@@ -54,6 +61,42 @@
             </div>
             
             <button class="save-btn" onclick="saveData()">✅ Save Monthly Data</button>
+        </div>
+        
+        <!-- Presets Management View -->
+        <div id="presets-view" class="view">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">⚙️</div>
+                    <div>
+                        <div class="card-title">Preset Styles</div>
+                        <div class="card-subtitle">Create and manage your budget presets</div>
+                    </div>
+                </div>
+                
+                <div class="preset-form">
+                    <h3>Create New Preset</h3>
+                    <div class="input-group">
+                        <label>Preset Name</label>
+                        <input type="text" id="presetName" placeholder="e.g., Conservative, Aggressive Savings" />
+                    </div>
+                    
+                    <div class="categories-grid" id="presetCategories"></div>
+                    
+                    <div id="presetTotalCard" class="total-card complete">
+                        <div class="total-label">Total</div>
+                        <div class="total-percent" id="presetTotalPercent">100%</div>
+                        <div class="warning" id="presetWarning" style="display: none;">Must equal 100%</div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="savePreset()">💾 Save Preset</button>
+                </div>
+                
+                <div class="saved-presets">
+                    <h3>Saved Presets</h3>
+                    <div id="presetsList"></div>
+                </div>
+            </div>
         </div>
         
         <!-- Dashboard View -->
@@ -126,6 +169,7 @@
     
     <!-- Load JavaScript files in order -->
     <script src="js/data.js"></script>
+    <script src="js/presets.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/app.js"></script>
 </body>
