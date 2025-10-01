@@ -1,7 +1,13 @@
 function init() {
     initializePercentages();
+    initializePresetPercentages();
+    loadDefaultPresets();
     renderCategories();
+    renderPresetCategories();
+    renderPresetsList();
+    renderPresetButtons();
     updateTotalPercent();
+    updatePresetTotalPercent();
     
     // Add event listener for income input
     document.getElementById('income').addEventListener('input', updateAmounts);
@@ -20,7 +26,8 @@ function renderCategories() {
                 <div class="category-percent">
                     <input type="number" value="${cat.defaultPercent}" 
                            onchange="updatePercent('${cat.id}', this.value)"
-                           min="0" max="100" />
+                           min="0" max="100" 
+                           id="input-${cat.id}" />
                     <span style="font-weight: 700; font-size: 1.2em;">%</span>
                 </div>
             </div>
@@ -29,6 +36,16 @@ function renderCategories() {
             </div>
         </div>
     `).join('');
+}
+
+// Update all category inputs
+function updateAllCategoryInputs() {
+    categories.forEach(cat => {
+        const input = document.getElementById(`input-${cat.id}`);
+        if (input) {
+            input.value = percentages[cat.id];
+        }
+    });
 }
 
 // Update percentage for a category
@@ -102,8 +119,10 @@ function showView(view) {
     
     if (view === 'dashboard') {
         updateDashboard();
-    } else {
+    } else if (view === 'input') {
         updateAmounts();
+    } else if (view === 'presets') {
+        renderPresetsList();
     }
 }
 
